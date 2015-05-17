@@ -9,4 +9,6 @@ DESCRIPTION="KDED stands for KDE Daemon which isn't very descriptive.
 KDED runs in the background and performs a number of small tasks.
 Some of these tasks are built in, others are started on demand."
 
+PATCH_URI="5.10.0-check-upd-off.patch"
+
 REQUIRES="kf5-kinit"

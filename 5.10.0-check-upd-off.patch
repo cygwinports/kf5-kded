@@ -1,0 +1,15 @@
+kconf_update is always run regardless when kded starts; this only controls
+monitoring of new .upd files while running.  This takes a lot of CPU for very
+little gain, so disable it.
+
+--- origsrc/kded-5.10.0/src/kded.cpp	2015-05-03 10:08:27.000000000 -0500
++++ src/kded-5.10.0/src/kded.cpp	2015-05-17 16:39:38.031663500 -0500
+@@ -802,7 +802,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int
+     KConfigGroup cg(config, "General");
+ 
+     bCheckSycoca = cg.readEntry("CheckSycoca", true);
+-    bCheckUpdates = cg.readEntry("CheckUpdates", true);
++    bCheckUpdates = cg.readEntry("CheckUpdates", false);
+     checkStamps = cg.readEntry("CheckFileStamps", s_checkStampsDefault);
+     delayedCheck = cg.readEntry("DelayedCheck", false);
+ 
