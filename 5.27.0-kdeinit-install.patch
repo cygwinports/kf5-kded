@@ -1,0 +1,12 @@
+--- origsrc/kded-5.27.0/src/CMakeLists.txt	2016-10-02 04:48:01.000000000 -0500
++++ src/kded-5.27.0/src/CMakeLists.txt	2016-11-02 12:25:17.372951100 -0500
+@@ -22,7 +22,8 @@ target_compile_definitions(kded5 PRIVATE
+     KCONF_UPDATE_EXE="$<TARGET_FILE:KF5::kconf_update>"
+ )
+ 
+-install(TARGETS kdeinit_kded5 EXPORT KDEDTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
++install(TARGETS kdeinit_kded5 EXPORT KDEDTargets RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
++                                                 LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+ 
+ target_link_libraries( kded5 kdeinit_kded5)
+ install(TARGETS kded5 EXPORT KDEDTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} )

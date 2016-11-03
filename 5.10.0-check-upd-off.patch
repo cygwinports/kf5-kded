@@ -10,6 +10,6 @@ little gain, so disable it.
      bCheckSycoca = cg.readEntry("CheckSycoca", true);
 -    bCheckUpdates = cg.readEntry("CheckUpdates", true);
 +    bCheckUpdates = cg.readEntry("CheckUpdates", false);
-     checkStamps = cg.readEntry("CheckFileStamps", s_checkStampsDefault);
      delayedCheck = cg.readEntry("DelayedCheck", false);
  
+ #ifndef Q_OS_WIN

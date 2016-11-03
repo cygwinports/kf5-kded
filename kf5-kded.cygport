@@ -1,7 +1,7 @@
 inherit kf5
 
 NAME="kf5-kded"
-VERSION=5.12.0
+VERSION=5.27.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="KDE 5 daemon"
@@ -9,6 +9,23 @@ DESCRIPTION="KDED stands for KDE Daemon which isn't very descriptive.
 KDED runs in the background and performs a number of small tasks.
 Some of these tasks are built in, others are started on demand."
 
-PATCH_URI="5.10.0-check-upd-off.patch"
+PATCH_URI="
+	5.10.0-check-upd-off.patch
+	5.27.0-kdeinit-install.patch
+"
 
-REQUIRES="kf5-kinit"
+PKG_NAMES="${NAME} ${NAME}-devel"
+kf5_kded_REQUIRES="kf5-kinit"
+kf5_kded_CONTENTS="
+	usr/bin/cygkdeinit5_kded5.dll
+	usr/bin/kded5.exe
+	usr/share/dbus-1/services/org.kde.kded5.service
+	usr/share/doc/
+	usr/share/kservicetypes5/kdedmodule.desktop
+	usr/share/man/
+"
+kf5_kded_devel_REQUIRES=${NAME}
+kf5_kded_devel_CONTENTS="
+	usr/lib/cmake/KDED/
+	usr/share/dbus-1/interfaces/org.kde.kded5.xml
+"
