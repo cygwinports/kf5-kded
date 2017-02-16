@@ -1,0 +1,20 @@
+--- origsrc/kded-5.27.0/src/kded.cpp	2017-02-06 09:23:22.464537700 -0600
++++ src/kded-5.27.0/src/kded.cpp	2017-02-06 09:35:51.411897900 -0600
+@@ -768,7 +768,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int
+     }
+ 
+ //NOTE: We are going to change how KDE starts and this certanly doesn't fit on the new design.
+-#ifdef Q_OS_LINUX
++#if defined Q_OS_LINUX || defined Q_OS_CYGWIN
+     // Tell KSplash that KDED has started
+     QDBusMessage ksplashProgressMessage = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KSplash"),
+                                           QStringLiteral("/KSplash"),
+@@ -780,7 +780,7 @@ extern "C" Q_DECL_EXPORT int kdemain(int
+ 
+     runKonfUpdate(); // Run it once.
+ 
+-#ifdef Q_OS_LINUX
++#if defined Q_OS_LINUX || defined Q_OS_CYGWIN
+     ksplashProgressMessage = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KSplash"),
+                              QStringLiteral("/KSplash"),
+                              QStringLiteral("org.kde.KSplash"),
