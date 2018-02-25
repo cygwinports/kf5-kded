@@ -1,7 +1,7 @@
 inherit kf5
 
 NAME="kf5-kded"
-VERSION=5.39.0
+VERSION=5.43.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="KDE 5 daemon"
@@ -12,7 +12,6 @@ Some of these tasks are built in, others are started on demand."
 PATCH_URI="
 	5.10.0-check-upd-off.patch
 	5.27.0-kdeinit-install.patch
-	5.27.0-ksplash.patch
 "
 
 PKG_NAMES="${NAME} ${NAME}-devel"
